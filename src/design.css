@@ -1,0 +1,80 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+  }
+  
+  .cell {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid rgb(255, 251, 251);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px; 
+    font-family: Arial, sans-serif; 
+    background-color: #ccc;
+    box-shadow: inset 0px -2px 5px rgba(255, 255, 255, 0.8), /* Top-left shadow */
+    inset 0px 2px 5px rgba(0, 0, 0, 0.2); /* Bottom-right shadow */
+  }
+  
+  .cell.revealed {
+    background-color: rgb(243, 243, 243);
+    font-size: 23px;
+    color: blue;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 800;
+    font-style:bold;
+  }
+  
+  .cell.flagged {
+    background-color: yellow;
+  }
+  
+  .cell:hover {
+    background-color: rgb(243, 243, 243);
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color:#fff; /* Optional: Set a background color */
+  }
+  .cell.revealed.value-1 {
+    color:green;
+  }
+  
+  .cell.revealed.value-2 {
+    color: red;
+  }
+  
+  .cell.revealed.value-3 {
+    color: darkblue;
+  }
+  
+  .cell.revealed.value-4 {
+    color: yellow;
+  }
+  .cell.revealed.value-5 {
+    color: orange;
+  }
+  .cell.revealed.value-6 {
+    color:black;
+  }
+  .cell.revealed.value-7{
+    color:violet;
+  }
+  .go{
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 400;
+  }
+  body{
+    background-image: url('gradient.jpeg');
+    display: flex;
+    background-position:center;
+  }
