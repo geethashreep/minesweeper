@@ -56,7 +56,7 @@
   }
   
   .cell.revealed.value-4 {
-    color: yellow;
+    color:palevioletred;
   }
   .cell.revealed.value-5 {
     color: orange;
