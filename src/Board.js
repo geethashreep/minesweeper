@@ -6,8 +6,6 @@ const Board = ({ size, mines }) => {
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
-    initBoard();
-  }, []);
 
   const initBoard = () => {
     let newBoard = Array(size)
@@ -41,7 +39,8 @@ const Board = ({ size, mines }) => {
 
     setBoard(newBoard);
   };
-
+  initBoard();
+  }, [size, mines]);
   const countNeighbourMines = (board, row, col) => {
     const directions = [
       [-1, -1], [-1, 0], [-1, 1], 
