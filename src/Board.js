@@ -5,6 +5,23 @@ const Board = ({ size, mines }) => {
   const [board, setBoard] = useState([]);
   const [gameOver, setGameOver] = useState(false);
 
+  const countNeighbourMines = (board, row, col) => {
+    const directions = [
+      [-1, -1], [-1, 0], [-1, 1], 
+      [0, -1], [0, 1], 
+      [1, -1], [1, 0], [1, 1]
+    ];
+
+    let count = 0;
+    for (let [dr, dc] of directions) {
+      const newRow = row + dr;
+      const newCol = col + dc;
+      if (newRow >= 0 && newRow < size && newCol >= 0 && newCol < size && board[newRow][newCol].isMine) {
+        count++;
+      }
+    }
+    return count;
+  };
   useEffect(() => {
 
   const initBoard = () => {
@@ -41,23 +58,8 @@ const Board = ({ size, mines }) => {
   };
   initBoard();
   }, [size, mines]);
-  const countNeighbourMines = (board, row, col) => {
-    const directions = [
-      [-1, -1], [-1, 0], [-1, 1], 
-      [0, -1], [0, 1], 
-      [1, -1], [1, 0], [1, 1]
-    ];
-
-    let count = 0;
-    for (let [dr, dc] of directions) {
-      const newRow = row + dr;
-      const newCol = col + dc;
-      if (newRow >= 0 && newRow < size && newCol >= 0 && newCol < size && board[newRow][newCol].isMine) {
-        count++;
-      }
-    }
-    return count;
-  };
+  
+  
 
   const revealAllMines = (newBoard) => {
     for (let r = 0; r < size; r++) {
