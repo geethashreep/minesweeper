@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useCallback } from 'react';
 import './design.css';
 
 const Board = ({ size, mines }) => {
   const [board, setBoard] = useState([]);
   const [gameOver, setGameOver] = useState(false);
 
-  const countNeighbourMines = (board, row, col) => {
+  const countNeighbourMines =useCallback ((board, row, col) => {
     const directions = [
       [-1, -1], [-1, 0], [-1, 1], 
       [0, -1], [0, 1], 
@@ -21,7 +21,7 @@ const Board = ({ size, mines }) => {
       }
     }
     return count;
-  };
+  },[size]);
   useEffect(() => {
 
   const initBoard = () => {
@@ -57,7 +57,7 @@ const Board = ({ size, mines }) => {
     setBoard(newBoard);
   };
   initBoard();
-  }, [size, mines]);
+  }, [size, mines,countNeighbourMines]);
   
   
 
